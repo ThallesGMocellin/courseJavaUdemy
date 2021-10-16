@@ -6,7 +6,7 @@ import java.util.Scanner;
 import model.entities.Reservation;
 public class Program {
 	public static void main(String[] args) throws ParseException {
-		//Solução 1 - Ruim -  exercício exceções. 
+		//Solução 1 - muito ruim -  exercício exceções. 
 		
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
