@@ -6,7 +6,7 @@ import java.util.Scanner;
 import model.entities.Reservation;
 public class Program {
 	public static void main(String[] args) throws ParseException {
-		//Solução 1 - muito ruim -  exercício exceções. 
+		//Solução 2 - ruim -  exercício exceções. 
 		
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -29,17 +29,12 @@ public class Program {
 		System.out.print("Check-out date (dd/MM/yyyy): ");
 		Date updCheckOut = sdf.parse(sc.next());
 		
-		Date now = new Date();
-		if (updCheckIn.before(now) || updCheckOut.before(now)) {
-			System.out.println("Error in reservation: Reservation dates for update must be future dates");
-		}else if (!updCheckOut.after(updCheckIn)) {
-			System.out.println("Error in reservation: Check-out date must be after check-in date"); 
+		String error = reservation.updateDates(updCheckIn, updCheckOut);
+		if (error != null) {
+			System.out.println("Error in reservation: " + error);
 		}else {
-			reservation.updateDates(updCheckIn, updCheckOut);
 			System.out.println("Reservation: " + reservation);
 		}
-		
 		}
-		
 	}
 }
